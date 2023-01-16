@@ -1,6 +1,7 @@
 from django.db import models
 
 from student.models import Student
+
 class Course(models.Model):
    course_name = models.CharField(max_length=50)
    question_number = models.PositiveIntegerField()
@@ -24,4 +25,18 @@ class Result(models.Model):
     exam = models.ForeignKey(Course,on_delete=models.CASCADE)
     marks = models.PositiveIntegerField()
     date = models.DateTimeField(auto_now=True)
+
+class QuestionSheet(models.Model):
+    course=models.ForeignKey(Course,on_delete=models.CASCADE)
+    title =models.CharField(max_length=150)
+    file =models.FileField(upload_to='docs/')
+
+class studentAnswer(models.Model):
+    student = models.ForeignKey(Student,on_delete=models.CASCADE)
+    course=models.ForeignKey(Course,on_delete=models.CASCADE)
+    question_sheet =models.ForeignKey(QuestionSheet,on_delete=models.CASCADE)
+    answer =models.FileField(upload_to='answer')
+    marks = models.PositiveIntegerField(default=0)
+
+
 
