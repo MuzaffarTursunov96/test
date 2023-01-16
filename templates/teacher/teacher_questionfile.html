@@ -22,16 +22,20 @@
     {%csrf_token%}
     <div class="raw">
       <div class="form-group">
-        <div class="col-md-6">
+        <div class="col-md-6 p-2">
+          <label >Course</label>
             {{form.course}}
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 p-2">
+          <label >Title</label>
             {{form.title}}
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 p-2">
+          <label >File</label>
             {{form.file}}
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 p-2">
+          <label >Total Marks</label>
             {{form.total_marks}}
         </div>
       </div>
