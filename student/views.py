@@ -8,7 +8,9 @@ from django.conf import settings
 from datetime import date, timedelta
 from exam import models as QMODEL
 from teacher import models as TMODEL
+from exam import forms as QFORM
 import os
+from django.contrib import messages
 
 
 #for showing signup/login button for student
@@ -134,4 +136,25 @@ def check_marks_view(request,pk):
 def student_marks_view(request):
     courses=QMODEL.Course.objects.all()
     return render(request,'student/student_marks.html',{'courses':courses})
+
+
+
+@login_required(login_url='studentlogin')
+@user_passes_test(is_student)
+def student_answers(request):
+    questionForm=QFORM.StudentAnswerForm()
+    if request.method=='POST':
+        questionForm=QFORM.StudentAnswerForm(request.POST,request.FILES)
+        if questionForm.is_valid():
+            question=questionForm.save(commit=False)
+            # course=QMODEL.Course.objects.get(id=request.POST.get('courseID'))
+            student =models.Student.objects.get(user=request.user)
+            question.student=student
+            question.save()       
+            return HttpResponseRedirect('/student/student-dashboard')
+        else:
+            print("form is invalid")
+            messages.warning(request, questionForm.errors)
+        return HttpResponseRedirect('/student/answers')
+    return render(request,'student/student_answerfile.html',{'form':questionForm})
   
