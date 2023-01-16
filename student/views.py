@@ -135,7 +135,9 @@ def check_marks_view(request,pk):
 @user_passes_test(is_student)
 def student_marks_view(request):
     courses=QMODEL.Course.objects.all()
-    return render(request,'student/student_marks.html',{'courses':courses})
+    student =models.Student.objects.get(user=request.user)
+    marks =QMODEL.StudentAnswer.objects.filter(student=student,marks__gt=0)
+    return render(request,'student/student_marks.html',{'courses':courses,'marks':marks})
 
 
 

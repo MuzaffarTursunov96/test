@@ -46,6 +46,32 @@
       {% endfor %}
     </table>
   </div>
+  {%if marks %}
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">My Marks for file</h6>
+    </div>
+    <table class="table table-hover table-bordered" id="dev-table">
+      <thead>
+        <tr>
+
+          <th>Course</th>
+          
+          <th>Action</th>
+        </tr>
+      </thead>
+      {% for mark in marks %}
+      <tr>
+
+        
+        <td> {{mark.course}}</td>
+        <td> {{mark.question_sheet}}</td>
+        <td> {{mark.marks}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  {%endif%}
 </div>
 
 <br><br><br><br><br><br>

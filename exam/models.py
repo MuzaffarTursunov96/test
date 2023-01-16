@@ -32,6 +32,9 @@ class QuestionSheet(models.Model):
     file =models.FileField(upload_to='docs/')
     total_marks=models.PositiveIntegerField()
 
+    def __str__(self):
+        return f"{self.course.course_name} --> {self.title}"
+
 class StudentAnswer(models.Model):
     student = models.ForeignKey(Student,on_delete=models.CASCADE)
     course=models.ForeignKey(Course,on_delete=models.CASCADE)
