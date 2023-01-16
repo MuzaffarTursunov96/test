@@ -2,12 +2,13 @@ from django.shortcuts import render,redirect,reverse
 from . import forms,models
 from django.db.models import Sum
 from django.contrib.auth.models import Group
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,FileResponse
 from django.contrib.auth.decorators import login_required,user_passes_test
 from django.conf import settings
 from datetime import date, timedelta
 from exam import models as QMODEL
 from teacher import models as TMODEL
+import os
 
 
 #for showing signup/login button for student
@@ -52,7 +53,16 @@ def student_dashboard_view(request):
 @user_passes_test(is_student)
 def student_exam_view(request):
     courses=QMODEL.Course.objects.all()
-    return render(request,'student/student_exam.html',{'courses':courses})
+    files =QMODEL.QuestionSheet.objects.all()
+    return render(request,'student/student_exam.html',{'courses':courses,'files':files})
+
+# def download_mo(request,file):
+#     path_to_file = os.path.realpath(file)
+#     response = FileResponse(open(path_to_file, 'rb'))
+#     file_name = file[5:]
+#     response['Content-Disposition'] = 'inline; filename=' + file_name
+#     return response
+
 
 @login_required(login_url='studentlogin')
 @user_passes_test(is_student)
