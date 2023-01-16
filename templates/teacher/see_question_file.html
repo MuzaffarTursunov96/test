@@ -39,19 +39,15 @@
           <th>Action</th>
         </tr>
       </thead>
-      {{questions}}
-      {% for c in questions %}
       <tr>
-
-        <td> {{c.course}}</td>
-        <td> {{c.title}}</td>
+        <td> {{question.course}}</td>
+        <td> {{question.title}}</td>
         
-        <td>{{c.total_marks}}</td>
-        <td>{{c.file}}</td>
+        <td>{{question.total_marks}}</td>
+        <td>{{question.file}}</td>
         <td><a class="btn btn-danger btn-xs" style="border-radius: 0%;" href="{% url 'remove-question' c.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
         
       </tr>
-      {% endfor %}
     </table>
   </div>
 </div>

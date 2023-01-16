@@ -144,8 +144,8 @@ def see_question_view(request,pk):
 @login_required(login_url='teacherlogin')
 @user_passes_test(is_teacher)
 def see_question_view_file(request,pk):
-    questions=QMODEL.QuestionSheet.objects.get(id=pk)
-    return render(request,'teacher/see_question_file.html',{'questions':questions})
+    question=QMODEL.QuestionSheet.objects.get(id=pk)
+    return render(request,'teacher/see_question_file.html',{'question':question})
 
 @login_required(login_url='teacherlogin')
 @user_passes_test(is_teacher)
