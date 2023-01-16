@@ -101,9 +101,10 @@ def teacher_question_file_view(request):
             # course=QMODEL.Course.objects.get(id=request.POST.get('courseID'))
             # question.course=course
             question.save()       
+            return HttpResponseRedirect('/teacher/teacher-view-question-file')
         else:
             print("form is invalid")
-        return HttpResponseRedirect('/teacher/teacher-view-question-file')
+        return HttpResponseRedirect('/teacher/teacher-add-question-file')
     return render(request,'teacher/teacher_questionfile.html',{'form':questionForm})
 
 
