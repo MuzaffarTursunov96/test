@@ -43,7 +43,7 @@ class TeacherMarksForm(forms.ModelForm):
         for field in self.fields:
             self.fields[field].widget.attrs.update({
                 'class': 'form-control input-sm col-sm-1',
-                'style':'withd:45px!important;'
+                'style':'width:75px!important;'
             })
     class Meta:
         model=models.StudentAnswer
