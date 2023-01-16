@@ -16,11 +16,23 @@ class CourseForm(forms.ModelForm):
         fields=['course_name','question_number','total_marks']
 
 class QuestionSheetForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({
+                'class': 'form-control'
+            })
     class Meta:
         model=models.QuestionSheet
         fields=['course','title','file','total_marks']
 
 class StudentAnswerForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({
+                'class': 'form-control'
+            })
     class Meta:
         model=models.StudentAnswer
         fields=['course','question_sheet','answer']
