@@ -38,7 +38,7 @@
         <td> {{answer.question_sheet}}</td>
         <td> <a class="btn btn-success" href="{{answer.answer.url}}" download>Answer Download</a></td>
         <td>
-          <form method="POST" action="">
+          <form method="POST" action="{% url 'teacher-set-mark' %}">
             {% csrf_token %}
             {{form.marks}}
             <button type="submit" class="btn btn-primary btn-sm">Submit</button>
