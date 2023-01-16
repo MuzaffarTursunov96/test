@@ -168,3 +168,10 @@ def remove_question_view(request,pk):
     question=QMODEL.Question.objects.get(id=pk)
     question.delete()
     return HttpResponseRedirect('/teacher/teacher-view-question')
+
+@login_required(login_url='teacherlogin')
+@user_passes_test(is_teacher)
+def remove_question_view_file(request,pk):
+    question=QMODEL.QuestionSheet.objects.get(id=pk)
+    question.delete()
+    return HttpResponseRedirect('/teacher/teacher-view-question-file')

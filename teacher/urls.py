@@ -21,4 +21,5 @@ path('teacher-view-question-file', views.teacher_view_question_view_file,name='t
 path('see-question/<int:pk>', views.see_question_view,name='see-question'),
 path('see-question-file/<int:pk>', views.see_question_view_file,name='see-question-file'),
 path('remove-question/<int:pk>', views.remove_question_view,name='remove-question'),
+path('remove-question-file/<int:pk>', views.remove_question_view_file,name='remove-question-file'),
 ]
