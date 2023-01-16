@@ -98,8 +98,8 @@ def teacher_question_file_view(request):
         questionForm=QFORM.QuestionSheetForm(request.POST)
         if questionForm.is_valid():
             question=questionForm.save(commit=False)
-            course=QMODEL.Course.objects.get(id=request.POST.get('courseID'))
-            question.course=course
+            # course=QMODEL.Course.objects.get(id=request.POST.get('courseID'))
+            # question.course=course
             question.save()       
         else:
             print("form is invalid")
