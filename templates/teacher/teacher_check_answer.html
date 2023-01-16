@@ -17,38 +17,37 @@
     
   </style>
 </head>
-<h2 style="text-align:center;">Add Question</h2>
-<form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
-    {%csrf_token%}
-    <div class="form-group">
-        <label for="question">Course</label>
-      {% render_field questionForm.courseID|attr:'required:true' class="form-control"  %}
-        <br>
 
-      <label for="question">Question</label>
-      {% render_field questionForm.question|attr:'required:true' class="form-control" placeholder="Example: What is the relation calculus?" %}
-        <br>
-      <label for="question_number">Marks</label>
-      {% render_field questionForm.marks|attr:'required:true' class="form-control" placeholder="Example: 5" %}
-        <br>
-      <label for="option1">Option 1</label>
-      {% render_field questionForm.option1|attr:'required:true' class="form-control" placeholder="Example: It is a kind of procedural language" %}
-        <br>
-      <label for="option2">Option 2</label>
-      {% render_field questionForm.option2|attr:'required:true' class="form-control" placeholder="Example: It is a non-procedural language" %}
-        <br>
-      <label for="option3">Option 3</label>
-      {% render_field questionForm.option3|attr:'required:true' class="form-control" placeholder="Example: It is a high-level language" %}
-        <br>
-      <label for="option4">Option 4</label>
-      {% render_field questionForm.option4|attr:'required:true' class="form-control" placeholder="Example: It is Data Definition language" %}
-        <br>
-      <label for="answer">Correct Answer</label>
-      {% render_field questionForm.answer|attr:'required:true' class="form-control" %}
-    </div>
-    
+<div class="container">
+  <div class="panel panel-primary">
+    <h2 style="text-align:center;">Student Answers</h2>
+    <table class="table table-hover table-bordered" id="dev-table">
+      <thead>
+        <tr>
 
-    <button type="submit" class="btn btn-success" style="border-radius: 0%;">Submit Question</button>
-  </form>
+          <th>Student</th>
+          <th>Title</th>
+          <th>Answer</th>
+          <th>Marks</th>
+
+        </tr>
+      </thead>
+      {% for answer in answers %}
+      <tr>
+        <td> {{answer.student}}</td>
+        <td> {{answer.question_sheet}}</td>
+        <td> {{answer.answer.url}}</td>
+        <td>
+          <form method="POST" action="">
+            {% csrf_token %}
+            {{form.marks}}
+            <button type="submit">Submit</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
 <br><br><br>
 {% endblock content %}

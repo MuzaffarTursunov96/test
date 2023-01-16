@@ -37,6 +37,18 @@ class StudentAnswerForm(forms.ModelForm):
         model=models.StudentAnswer
         fields=['course','question_sheet','answer']
 
+class TeacherMarksForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({
+                'class': 'form-control',
+                'style':'withd:45px;'
+            })
+    class Meta:
+        model=models.StudentAnswer
+        fields=['marks']
+
 
 class QuestionForm(forms.ModelForm):
     

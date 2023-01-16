@@ -15,6 +15,8 @@ path('delete-exam/<int:pk>', views.delete_exam_view,name='delete-exam'),
 
 path('teacher-question', views.teacher_question_view,name='teacher-question'),
 path('teacher-check-answers', views.teacher_check_answer,name='teacher-check-answer'),
+path('teacher-set-mark', views.teacher_set_mark,name='teacher-set-mark'),
+
 path('teacher-add-question-file', views.teacher_question_file_view,name='teacher-question-file'),
 path('teacher-add-question', views.teacher_add_question_view,name='teacher-add-question'),
 path('teacher-view-question', views.teacher_view_question_view,name='teacher-view-question'),
