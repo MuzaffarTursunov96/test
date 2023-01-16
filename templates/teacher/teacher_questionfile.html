@@ -20,8 +20,21 @@
 <h2 style="text-align:center;">Add Question</h2>
 <form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
     {%csrf_token%}
-    <div class="form-group">
-        {{form.as_p}}
+    <div class="raw">
+      <div class="form-group">
+        <div class="col-md-6">
+            {{form.course}}
+        </div>
+        <div class="col-md-6">
+            {{form.title}}
+        </div>
+        <div class="col-md-6">
+            {{form.file}}
+        </div>
+        <div class="col-md-6">
+            {{form.total_marks}}
+        </div>
+      </div>
     </div>
     <button type="submit" class="btn btn-success" style="border-radius: 0%;">Submit Question</button>
   </form>
