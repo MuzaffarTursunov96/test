@@ -21,19 +21,7 @@
 <form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
     {%csrf_token%}
     <div class="form-group">
-        <label for="question">Course</label>
-      {% render_field questionForm.courseID|attr:'required:true' class="form-control"  %}
-        <br>
-
-      <label for="question">Question Title</label>
-      {% render_field questionForm.title|attr:'required:true' class="form-control" placeholder="Title of question" %}
-        <br>
-      <label for="question">Question file</label>
-      {% render_field questionForm.file|attr:'required:true' class="form-control" %}
-        <br>
-      <label for="question_number">Marks</label>
-      {% render_field questionForm.total_marks|attr:'required:true' class="form-control" placeholder="Example: 5" %}
-        <br>
+        {{form.as_p}}
     </div>
     <button type="submit" class="btn btn-success" style="border-radius: 0%;">Submit Question</button>
   </form>

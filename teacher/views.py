@@ -104,7 +104,7 @@ def teacher_question_file_view(request):
         else:
             print("form is invalid")
         return HttpResponseRedirect('/teacher/teacher-view-question')
-    return render(request,'teacher/teacher_questionfile.html')
+    return render(request,'teacher/teacher_questionfile.html',{'form':questionForm})
 
 
 @login_required(login_url='teacherlogin')
