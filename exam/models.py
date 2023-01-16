@@ -37,7 +37,7 @@ class StudentAnswer(models.Model):
     course=models.ForeignKey(Course,on_delete=models.CASCADE)
     question_sheet =models.ForeignKey(QuestionSheet,on_delete=models.CASCADE)
     answer =models.FileField(upload_to='answer')
-    marks = models.PositiveIntegerField()
+    marks = models.PositiveIntegerField(default=0)
 
 
 
