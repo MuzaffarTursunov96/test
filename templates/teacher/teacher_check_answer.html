@@ -36,7 +36,7 @@
       <tr>
         <td> {{answer.student}}</td>
         <td> {{answer.question_sheet}}</td>
-        <td> {{answer.answer.url}}</td>
+        <td> <a href="{{answer.answer.url}}" download></a>Answer</td>
         <td>
           <form method="POST" action="">
             {% csrf_token %}
