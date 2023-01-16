@@ -88,6 +88,25 @@ def delete_exam_view(request,pk):
 def teacher_question_view(request):
     return render(request,'teacher/teacher_question.html')
 
+
+
+@login_required(login_url='teacherlogin')
+@user_passes_test(is_teacher)
+def teacher_question_file_view(request):
+    questionForm=QFORM.QuestionSheetForm()
+    if request.method=='POST':
+        questionForm=QFORM.QuestionSheetForm(request.POST)
+        if questionForm.is_valid():
+            question=questionForm.save(commit=False)
+            course=QMODEL.Course.objects.get(id=request.POST.get('courseID'))
+            question.course=course
+            question.save()       
+        else:
+            print("form is invalid")
+        return HttpResponseRedirect('/teacher/teacher-view-question')
+    return render(request,'teacher/teacher_questionfile.html')
+
+
 @login_required(login_url='teacherlogin')
 @user_passes_test(is_teacher)
 def teacher_add_question_view(request):
@@ -115,6 +134,18 @@ def teacher_view_question_view(request):
 def see_question_view(request,pk):
     questions=QMODEL.Question.objects.all().filter(course_id=pk)
     return render(request,'teacher/see_question.html',{'questions':questions})
+
+@login_required(login_url='teacherlogin')
+@user_passes_test(is_teacher)
+def teacher_view_question_view(request):
+    courses= QMODEL.Course.objects.all()
+    return render(request,'teacher/teacher_view_question_file.html',{'courses':courses})
+
+@login_required(login_url='teacherlogin')
+@user_passes_test(is_teacher)
+def see_question_view(request,pk):
+    questions=QMODEL.Question.objects.all().filter(course_id=pk)
+    return render(request,'teacher/see_question_file.html',{'questions':questions})
 
 @login_required(login_url='teacherlogin')
 @user_passes_test(is_teacher)

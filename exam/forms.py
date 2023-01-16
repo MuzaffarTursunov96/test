@@ -15,6 +15,17 @@ class CourseForm(forms.ModelForm):
         model=models.Course
         fields=['course_name','question_number','total_marks']
 
+class QuestionSheetForm(forms.ModelForm):
+    class Meta:
+        model=models.QuestionSheet
+        fields=['course','title','file','total_marks']
+
+class StudentAnswerForm(forms.ModelForm):
+    class Meta:
+        model=models.StudentAnswer
+        fields=['course','question_sheet','answer']
+
+
 class QuestionForm(forms.ModelForm):
     
     #this will show dropdown __str__ method course model is shown on html so override it

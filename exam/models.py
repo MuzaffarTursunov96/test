@@ -30,13 +30,14 @@ class QuestionSheet(models.Model):
     course=models.ForeignKey(Course,on_delete=models.CASCADE)
     title =models.CharField(max_length=150)
     file =models.FileField(upload_to='docs/')
+    total_marks=models.PositiveIntegerField()
 
-class studentAnswer(models.Model):
+class StudentAnswer(models.Model):
     student = models.ForeignKey(Student,on_delete=models.CASCADE)
     course=models.ForeignKey(Course,on_delete=models.CASCADE)
     question_sheet =models.ForeignKey(QuestionSheet,on_delete=models.CASCADE)
     answer =models.FileField(upload_to='answer')
-    marks = models.PositiveIntegerField(default=0)
+    marks = models.PositiveIntegerField()
 
 
 
