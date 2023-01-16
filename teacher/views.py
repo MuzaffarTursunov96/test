@@ -9,6 +9,7 @@ from datetime import date, timedelta
 from exam import models as QMODEL
 from student import models as SMODEL
 from exam import forms as QFORM
+from django.contrib import messages
 
 
 #for showing signup/login button for teacher
@@ -104,6 +105,7 @@ def teacher_question_file_view(request):
             return HttpResponseRedirect('/teacher/teacher-view-question-file')
         else:
             print("form is invalid")
+            messages.warning(request, questionForm.errors)
         return HttpResponseRedirect('/teacher/teacher-add-question-file')
     return render(request,'teacher/teacher_questionfile.html',{'form':questionForm})
 

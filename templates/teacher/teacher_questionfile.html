@@ -39,6 +39,13 @@
           <label >Total Marks</label>
             {{form.total_marks}}
         </div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
       </div>
     </div><br><br>
     <button type="submit" class="btn btn-success pl-2" style="border-radius: 0%; margin-top: 25px; margin-left: 16px;" >Submit Question</button>
