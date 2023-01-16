@@ -95,7 +95,7 @@ def teacher_question_view(request):
 def teacher_question_file_view(request):
     questionForm=QFORM.QuestionSheetForm()
     if request.method=='POST':
-        questionForm=QFORM.QuestionSheetForm(request.POST)
+        questionForm=QFORM.QuestionSheetForm(request.POST,request.FILES)
         if questionForm.is_valid():
             question=questionForm.save(commit=False)
             # course=QMODEL.Course.objects.get(id=request.POST.get('courseID'))
@@ -131,9 +131,21 @@ def teacher_view_question_view(request):
 
 @login_required(login_url='teacherlogin')
 @user_passes_test(is_teacher)
+def teacher_view_question_view_file(request):
+    questions =QMODEL.QuestionSheet.objects.all()
+    return render(request,'teacher/teacher_view_question_file.html',{'questions':questions})
+
+@login_required(login_url='teacherlogin')
+@user_passes_test(is_teacher)
 def see_question_view(request,pk):
     questions=QMODEL.Question.objects.all().filter(course_id=pk)
     return render(request,'teacher/see_question.html',{'questions':questions})
+
+@login_required(login_url='teacherlogin')
+@user_passes_test(is_teacher)
+def see_question_view_file(request,pk):
+    questions=QMODEL.QuestionSheet.objects.get(id=pk)
+    return render(request,'teacher/see_question_file.html',{'questions':questions})
 
 @login_required(login_url='teacherlogin')
 @user_passes_test(is_teacher)

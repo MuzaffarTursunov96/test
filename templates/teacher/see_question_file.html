@@ -31,18 +31,22 @@
       <thead>
         <tr>
 
-          <th>Question</th>
+          <th>Course</th>
+          <th>Title</th>
          
           <th>Marks</th>
+          <th>File</th>
           <th>Action</th>
         </tr>
       </thead>
       {% for c in questions %}
       <tr>
 
-        <td> {{c.question}}</td>
+        <td> {{c.course}}</td>
+        <td> {{c.title}}</td>
         
-        <td>{{c.marks}}</td>
+        <td>{{c.total_marks}}</td>
+        <td>{{c.file}}</td>
         <td><a class="btn btn-danger btn-xs" style="border-radius: 0%;" href="{% url 'remove-question' c.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
         
       </tr>
