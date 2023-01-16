@@ -103,7 +103,7 @@ def teacher_question_file_view(request):
             question.save()       
         else:
             print("form is invalid")
-        return HttpResponseRedirect('/teacher/teacher-view-question')
+        return HttpResponseRedirect('/teacher/teacher-view-question-file')
     return render(request,'teacher/teacher_questionfile.html',{'form':questionForm})
 
 
