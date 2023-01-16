@@ -98,11 +98,12 @@ def teacher_check_answer(request):
 
 @login_required(login_url='teacherlogin')
 @user_passes_test(is_teacher)
-def teacher_set_mark(request):
+def teacher_set_mark(request,pk):
+    instance =QMODEL.StudentAnswer.get(pk=pk)
     answers =QMODEL.StudentAnswer.objects.all()
     questionForm=QFORM.TeacherMarksForm()
     if request.method=='POST':
-        questionForm=QFORM.TeacherMarksForm(request.POST)
+        questionForm=QFORM.TeacherMarksForm(request.POST,instance=instance)
         if questionForm.is_valid():
             question=questionForm.save(commit=False)
             question.save()       
