@@ -89,6 +89,11 @@ def delete_exam_view(request,pk):
 def teacher_question_view(request):
     return render(request,'teacher/teacher_question.html')
 
+@login_required(login_url='teacherlogin')
+@user_passes_test(is_teacher)
+def teacher_check_answer(request):
+    return render(request,'teacher/teacher_check_answer.html')
+
 
 
 @login_required(login_url='teacherlogin')
