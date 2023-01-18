@@ -165,10 +165,10 @@
       <i style="left: 200px;margin-top: 17px;"class="fas fa-bars" id="sidebar_btn"></i>
     </label>
     <div class="left_area">
-      <h3>Online Exam</h3>
+      <h3>Онлайн-экзамен</h3>
     </div>
     <div class="right_area">
-      <a href="/logout" class="logout_btn" style="border-radius:0px;">Logout</a>
+      <a href="/logout" class="logout_btn" style="border-radius:0px;">Выйти</a>
     </div>
   </header>
   <!--header area end-->
@@ -178,14 +178,14 @@
 
       <img src="{% static "image/student.png" %}" class="profile_image" alt="">
       <h4>{{request.user.first_name}}</h4>
-      <h6 style="color: rgb(255, 255, 255);">( Student )</h6>
+      <h6 style="color: rgb(255, 255, 255);">( Ученик )</h6>
 
     </center>
 
     <a href="/student/student-dashboard"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
-    <a href="/student/student-exam"><i class="fas fa-book"></i><span>Examination</span></a>
-    <a href="/student/student-marks"><i class="fas fa-sort-numeric-up"></i><span>My Marks</span></a>
-    <a href="/student/answers"><i class="fas fa-check-circle"></i><span>Answer Upload</span></a>
+    <a href="/student/student-exam"><i class="fas fa-book"></i><span>Экзамены</span></a>
+    <a href="/student/student-marks"><i class="fas fa-sort-numeric-up"></i><span>Моии оценки</span></a>
+    <a href="/student/answers"><i class="fas fa-check-circle"></i><span>Загрузить ответ</span></a>
   </div>
   <!--sidebar end-->
 

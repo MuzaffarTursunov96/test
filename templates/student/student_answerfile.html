@@ -24,21 +24,21 @@
 <br><br>
 <div class="container">
   <div class="panel panel-primary">
-    <h2 style="text-align:center;">Answer to Question</h2>
+    <h2 style="text-align:center;">Ответ на вопрос</h2>
   <form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;" enctype="multipart/form-data">
     {%csrf_token%}
     <div class="raw">
       <div class="form-group">
         <div class="col-md-6 p-2">
-          <label >Course</label>
+          <label >Курс</label>
             {{form.course}}
         </div>
         <div class="col-md-6 p-2">
-          <label >Question Title</label>
+          <label >Название вопроса</label>
             {{form.question_sheet}}
         </div>
         <div class="col-md-6 p-2">
-          <label >File</label>
+          <label >Файл</label>
             {{form.answer}}
         </div>
         {% if messages %}
@@ -50,7 +50,7 @@
         {% endif %}
       </div>
     </div><br><br>
-    <button type="submit" class="btn btn-success pl-2" style="border-radius: 0%; margin-top: 25px; margin-left: 16px;" >Submit Answer</button>
+    <button type="submit" class="btn btn-success pl-2" style="border-radius: 0%; margin-top: 25px; margin-left: 16px;" >Отправить ответ</button>
   </form>
   </div>
 </div>

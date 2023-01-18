@@ -25,15 +25,15 @@
 <div class="container">
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h6 class="panel-title">My Marks</h6>
+      <h6 class="panel-title">Мои оценки</h6>
     </div>
     <table class="table table-hover table-bordered" id="dev-table">
       <thead>
         <tr>
 
-          <th>Course</th>
+          <th>Курс</th>
           
-          <th>Action</th>
+          <th>Действие</th>
         </tr>
       </thead>
       {% for t in courses %}
@@ -41,7 +41,7 @@
 
         <td> {{t.course_name}}</td>
         
-        <td><a class="btn btn-success btn-sm" style="border-radius:0px;" href="{% url 'check-marks' t.id  %}"><span class="glyphicon glyphicon-eye-open"></span> View Marks</a></td>
+        <td><a class="btn btn-success btn-sm" style="border-radius:0px;" href="{% url 'check-marks' t.id  %}"><span class="glyphicon glyphicon-eye-open"></span> Просмотр оценки</a></td>
       </tr>
       {% endfor %}
     </table>
@@ -49,16 +49,16 @@
   {%if marks %}
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h6 class="panel-title">My Marks for file</h6>
+      <h6 class="panel-title">Мои отметки для файла</h6>
     </div>
     <table class="table table-hover table-bordered" id="dev-table">
       <thead>
         <tr>
 
-          <th>Course</th>
+          <th>Курс</th>
           
-          <th>Title</th>
-          <th>Marks</th>
+          <th>Заголовок</th>
+          <th>Оценки</th>
         </tr>
       </thead>
       {% for mark in marks %}

@@ -18,25 +18,25 @@
     
   </style>
 </head>
-<h2 style="text-align:center;">Add Question</h2>
+<h2 style="text-align:center;">Добавить вопрос</h2>
 <form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;" enctype="multipart/form-data">
     {%csrf_token%}
     <div class="raw">
       <div class="form-group">
         <div class="col-md-6 p-2">
-          <label >Course</label>
+          <label >Курс</label>
             {{form.course}}
         </div>
         <div class="col-md-6 p-2">
-          <label >Title</label>
+          <label >Заголовок</label>
             {{form.title}}
         </div>
         <div class="col-md-6 p-2">
-          <label >File</label>
+          <label >Файл</label>
             {{form.file}}
         </div>
         <div class="col-md-6 p-2">
-          <label >Total Marks</label>
+          <label >Всего баллов</label>
             {{form.total_marks}}
         </div>
         {% if messages %}

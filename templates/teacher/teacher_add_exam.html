@@ -17,22 +17,22 @@
     
   </style>
 </head>
-<h2 style="text-align:center; ">Add Course Info</h2>
+<h2 style="text-align:center; ">Добавить информацию о курсе</h2>
 <form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
     {%csrf_token%}
     <div class="form-group">
-      <label for="course_name">Course Name</label>
+      <label for="course_name">Название курса</label>
       {% render_field courseForm.course_name class="form-control" placeholder="Example: Databases" %}
 
-      <label for="question_number">Total Question</label>
+      <label for="question_number">Всего Вопрос</label>
       {% render_field courseForm.question_number class="form-control" placeholder="Example: 10" %}
 
-      <label for="total_marks">Total Marks</label>
+      <label for="total_marks">Всего баллов</label>
       {% render_field courseForm.total_marks class="form-control" placeholder="Example: 100" %}
     </div>
     
 
-    <button type="submit" class="btn btn-success" style="border-radius: 0%;">Submit Info</button>
+    <button type="submit" class="btn btn-success" style="border-radius: 0%;">Отправить информацию</button>
   </form>
 <br><br><br>
 {% endblock content %}
