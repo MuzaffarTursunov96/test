@@ -1,5 +1,7 @@
 from django.urls import path,include
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from exam import views
 from django.contrib.auth.views import LogoutView,LoginView
 urlpatterns = [
@@ -49,4 +51,4 @@ urlpatterns = [
     path('delete-question/<int:pk>', views.delete_question_view,name='delete-question'),
 
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
